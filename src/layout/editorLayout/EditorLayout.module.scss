@@ -1,0 +1,28 @@
+.editor-header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.editor-container {
+  height: calc(100vh - 60px);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  .menu {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 100%;
+    background-color: #fafafa;
+  }
+  .editor {
+    flex: 1 1 auto;
+    height: 100%;
+    background-color: #fafafa;
+  }
+  .operation {
+    flex: 0 0 275px;
+    height: 100%;
+    background-color: #fafafa;
+  }
+}
