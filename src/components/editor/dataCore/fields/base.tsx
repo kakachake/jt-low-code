@@ -1,4 +1,4 @@
-import { FieldNode } from '../typs'
+import { FieldNode } from '../types'
 
 const baseFields: FieldNode[] = [
   {
@@ -7,6 +7,21 @@ const baseFields: FieldNode[] = [
     props: {
       className: '',
       children: ['div组件']
+    }
+  },
+  {
+    type: 'button',
+    module: 'base',
+    props: {
+      className: '',
+      children: ['button组件']
+    }
+  },
+  {
+    type: 'input',
+    module: 'base',
+    props: {
+      className: ''
     }
   }
 ]

@@ -1,17 +1,24 @@
 import EditorLayout from '@/layout/editorLayout/EditorLayout'
 import { FC } from 'react'
 
-import EditorMenu from '@/components/editor/editorMenu/EditorMenu'
+import EditorComps from '@/components/editor'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import { DndProvider } from 'react-dnd'
+import EditorProvider from '@/components/editor/editorProvider/EditorProvider'
 
 const Editor: FC = () => {
   return (
     <div>
-      <EditorLayout
-        Header={<div>header</div>}
-        Menu={<EditorMenu />}
-        Editor={<div>editor</div>}
-        Operation={<div>operation</div>}
-      />
+      <EditorProvider>
+        <DndProvider backend={HTML5Backend}>
+          <EditorLayout
+            Header={<div>header</div>}
+            Menu={<EditorComps.EditorMenu />}
+            Editor={<EditorComps.Canvas />}
+            Operation={<div>operation</div>}
+          />
+        </DndProvider>
+      </EditorProvider>
     </div>
   )
 }

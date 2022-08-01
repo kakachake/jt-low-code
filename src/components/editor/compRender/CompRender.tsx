@@ -1,14 +1,14 @@
 import React, { FC, ReactElement } from 'react'
-import { FieldNode } from '../dataCore/typs'
-
+import { FieldNode } from '../dataCore/types'
+import style from './CompRender.module.scss'
 import comps from '../dataCore/comps/index'
 
-interface CompComposerProps {
+interface ICompComposerProps {
   compWraps?: ReactElement[]
   children: ReactElement
 }
 
-const CompComposer: FC<CompComposerProps> = ({ compWraps, children }) => {
+const CompComposer: FC<ICompComposerProps> = ({ compWraps, children }) => {
   return (
     <>
       {compWraps?.length
