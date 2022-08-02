@@ -6,8 +6,12 @@ const baseFields: FieldNode[] = [
     module: 'base',
     props: {
       className: '',
-      children: ['div组件']
-    }
+      children: ['div组件'],
+      style: {
+        display: 'flex'
+      }
+    },
+    canDrop: true
   },
   {
     type: 'button',
@@ -23,7 +27,35 @@ const baseFields: FieldNode[] = [
     props: {
       className: ''
     }
+    // $schema: {
+    //   type: 'object',
+    //   properties: {
+    //     className: {
+    //       type: 'string',
+    //       title: 'className'
+    //     }
+    //   }
+    // }
   }
 ]
 
-export default baseFields
+const antdFields: FieldNode[] = [
+  {
+    type: 'antd-button',
+    module: 'antd',
+    props: {
+      className: '',
+      children: ['按钮组件']
+    }
+  },
+  {
+    type: 'antd-image',
+    module: 'antd',
+    props: {
+      width: 100,
+      src: 'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg'
+    }
+  }
+]
+
+export { baseFields, antdFields }

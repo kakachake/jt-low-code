@@ -26,12 +26,18 @@ const Canvas: FC<ICanvasProps> = () => {
       canDrop: monitor.canDrop()
     }),
     drop: (item, monitor) => {
-      if (!item?.compId) {
+      const isOver = monitor.isOver({
+        shallow: true
+      })
+
+      if (!item?.compId && isOver) {
         // 新增
         addComps(item)
       }
     }
   })
+  console.log(comps)
+
   return (
     <div
       ref={drop}

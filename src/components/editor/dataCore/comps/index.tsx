@@ -1,7 +1,9 @@
 import baseComps from './base/Index'
+import antdComps from './antd'
 
 const comps = {
-  ...baseComps
+  ...baseComps,
+  ...antdComps
 }
 
 export default comps

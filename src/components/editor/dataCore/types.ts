@@ -12,4 +12,5 @@ export interface FieldCompNode extends FieldNode {
   // 放置到画布上的组件唯一ID
   compId: string
   children: FieldCompNode[]
+  parentId?: string
 }

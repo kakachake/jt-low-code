@@ -1,6 +1,7 @@
 import { DeleteOutlined } from '@ant-design/icons'
-import { FC, MouseEventHandler } from 'react'
+import { FC, MouseEventHandler, useState } from 'react'
 import { FieldCompNode } from '../dataCore/types'
+import DragDropWrap from '../dragWrap/DragDropWrap'
 import { useEditorContext } from '../editorProvider/EditorProvider'
 import CompRender from './CompRender'
 import style from './EditorCompRender.module.scss'
@@ -11,9 +12,10 @@ interface IEditorCompRender {
 
 const EditorCompRender: FC<IEditorCompRender> = ({ comp }) => {
   const { selectedComps, setSelectComp, removeSelectComp, removeComp } = useEditorContext()
+  const [hover, setHover] = useState(false)
   const isSelected = selectedComps.includes(comp.compId)
   const handleSelect: MouseEventHandler<HTMLDivElement> = (e) => {
-    !isSelected ? setSelectComp(comp) : removeSelectComp(comp)
+    setSelectComp(comp)
     e.stopPropagation()
   }
   const handleDelete: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -22,8 +24,13 @@ const EditorCompRender: FC<IEditorCompRender> = ({ comp }) => {
   }
 
   return (
-    <div onClick={handleSelect} className={`${style.EditorCompWrap} ${isSelected ? style.selected : ''}`}>
-      <CompRender comp={comp} />
+    <div
+      onClick={handleSelect}
+      className={`${style.EditorCompWrap} ${isSelected ? style.selected : ''} ${hover ? style.selected : ''} `}
+    >
+      <DragDropWrap comp={comp} setHover={setHover}>
+        <CompRender comp={comp} />
+      </DragDropWrap>
       {!!isSelected && (
         <div onClick={handleDelete} className={style.delete}>
           <DeleteOutlined />

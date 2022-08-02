@@ -20,6 +20,7 @@ specifiers:
   craco-alias: ^3.0.1
   craco-less: ^2.0.0
   cz-conventional-changelog: ^3.3.0
+  dnd-core: ^16.0.1
   eslint: ^8.20.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-prettier: ^4.2.1
@@ -50,6 +51,7 @@ dependencies:
   '@types/react-dom': registry.npmmirror.com/@types/react-dom/18.0.6
   '@types/react-router-dom': registry.npmmirror.com/@types/react-router-dom/5.3.3
   antd: registry.npmmirror.com/antd/4.22.2_biqbaboplfbrettd7655fr4n2y
+  dnd-core: registry.npmmirror.com/dnd-core/16.0.1
   node-sass: registry.npmmirror.com/node-sass/7.0.1
   react: registry.npmmirror.com/react/18.2.0
   react-dnd: registry.npmmirror.com/react-dnd/16.0.1_2fk6exvuases2jnlpbutufplqi
