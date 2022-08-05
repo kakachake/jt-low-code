@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useDrag } from 'react-dnd'
 import comps from '../dataCore/comps'
 import { FieldCompNode, FieldNode } from '../dataCore/types'
-import { EDITOR_COMP } from '../type'
+import { EDITOR_COMP } from '../const'
 
 interface IDragWrapProps {
   children: React.ReactElement

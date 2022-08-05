@@ -1,7 +1,7 @@
 import { AppstoreOutlined, BuildOutlined } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 import { ReactElement } from 'react'
-import { baseFields, antdFields } from '../dataCore/fields/base'
+import { baseFields, antdFields } from '../dataCore/fields/'
 import Pannel from '../pannel/Pannel'
 type MenuItem = Required<MenuProps>['items'][number] & {
   pannel: ReactElement

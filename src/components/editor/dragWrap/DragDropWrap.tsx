@@ -2,7 +2,7 @@ import { FC, ReactElement, useEffect, useRef } from 'react'
 import { useDrag, useDrop } from 'react-dnd'
 import { FieldCompNode } from '../dataCore/types'
 import type { Identifier, XYCoord } from 'dnd-core'
-import { EDITOR_COMP } from '../type'
+import { EDITOR_COMP } from '../const'
 import { useEditorContext } from '../editorProvider/EditorProvider'
 
 interface IDragDropWrapProps {

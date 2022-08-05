@@ -1,4 +1,4 @@
-import Canvas from './Canvas/Canvas'
+import Canvas from './canvas/Canvas'
 import EditorMenu from './editorMenu/EditorMenu'
 
 export default {

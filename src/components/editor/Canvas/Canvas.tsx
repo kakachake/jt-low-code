@@ -3,7 +3,7 @@ import { useDrop } from 'react-dnd'
 import EditorCompRender from '../compRender/EditorCompRender'
 import { FieldCompNode } from '../dataCore/types'
 import { useEditorContext } from '../editorProvider/EditorProvider'
-import { EDITOR_COMP } from '../type'
+import { EDITOR_COMP } from '../const'
 import style from './Canvas.module.scss'
 
 interface ICanvasProps {}
@@ -36,7 +36,6 @@ const Canvas: FC<ICanvasProps> = () => {
       }
     }
   })
-  console.log(comps)
 
   return (
     <div

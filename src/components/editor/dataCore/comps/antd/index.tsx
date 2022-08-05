@@ -1,10 +1,11 @@
-import { Button, Image } from 'antd'
+import { Button, Image, ImageProps } from 'antd'
+import { DefaultProps } from '../type'
 
 const antdComps = {
-  'antd-button': (props: any) => {
+  'antd-button': (props: DefaultProps) => {
     return <Button {...props} />
   },
-  'antd-image': (props: any) => {
+  'antd-image': (props: ImageProps) => {
     return <Image {...props} />
   }
 }

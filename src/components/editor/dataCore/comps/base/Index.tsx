@@ -1,11 +1,13 @@
+import { BtnProps, DefaultProps } from '../type'
+
 const baseComps = {
-  div: (props: any) => {
+  div: (props: DefaultProps) => {
     return <div {...props} />
   },
-  button: (props: any) => {
+  button: (props: BtnProps) => {
     return <button {...props} />
   },
-  input: (props: any) => {
+  input: (props: DefaultProps) => {
     return <input {...props} />
   }
 }
