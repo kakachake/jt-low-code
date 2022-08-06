@@ -52,5 +52,4 @@ const Canvas: FC<ICanvasProps> = () => {
     </div>
   )
 }
-
 export default Canvas
