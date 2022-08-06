@@ -29,7 +29,7 @@ const EditorCompRender: FC<IEditorCompRender> = ({ comp }) => {
       className={`${style.EditorCompWrap} ${isSelected ? style.selected : ''} ${hover ? style.selected : ''} `}
     >
       <DragDropWrap comp={comp} setHover={setHover}>
-        <CompRender comp={comp} />
+        <CompRender comp={comp} mode="edit" />
       </DragDropWrap>
       {!!isSelected && (
         <div onClick={handleDelete} className={style.delete}>

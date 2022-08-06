@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react'
-import { FieldCompNode, FieldNode } from '../dataCore/types'
+import { FieldCompNode } from '../dataCore/types'
 import style from './CompRender.module.scss'
 import comps from '../dataCore/comps/index'
 import EditorCompRender from './EditorCompRender'
@@ -25,14 +25,22 @@ const CompComposer: FC<ICompComposerProps> = ({ compWraps, children }) => {
 interface CompRenderProps {
   comp: FieldCompNode
   compWraps?: ReactElement[]
+  mode?: 'edit' | 'preview'
 }
 
-const CompRender: FC<CompRenderProps> = ({ comp, compWraps }) => {
+const CompRender: FC<CompRenderProps> = ({ comp, compWraps, mode = 'preview' }) => {
   const { comps: editorComps } = useEditorContext()
   const { type, props, module, children } = comp
-  const childrenComp = children?.map((child) => <EditorCompRender key={child.compId} comp={child} />) || []
+  const childrenComp =
+    children?.map((child) =>
+      mode === 'edit' ? (
+        <EditorCompRender key={child.compId} comp={child} />
+      ) : (
+        <CompRender key={child.compId} comp={child} />
+      )
+    ) || []
   const Comp = React.cloneElement(
-    comps[type](props),
+    comps[type](props as any),
     {
       onClick: () => {
         console.log('click', editorComps)

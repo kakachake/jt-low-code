@@ -18,6 +18,7 @@ type CompsType = {
 }
 
 export type UnionFieldNode = CompsType[keyof CompsType]
+// export type UnionFieldNode = FieldNode<keyof typeof comps>
 
 export type FieldCompNode = {
   // 放置到画布上的组件唯一ID

@@ -1,5 +1,5 @@
 import { createContext, FC, useContext, useState } from 'react'
-import { FieldCompNode, FieldNode } from '../dataCore/types'
+import { FieldCompNode, FieldNode, UnionFieldNode } from '../dataCore/types'
 import { v4 as uuid } from 'uuid'
 import { message } from 'antd'
 import { traverse } from '../utils'
@@ -10,7 +10,7 @@ interface IEditorProvider {
 interface IEditorType {
   comps: FieldCompNode[]
   selectedComps: string[]
-  addComps: (comps: FieldNode, parentItem?: FieldCompNode) => void
+  addComps: (comps: UnionFieldNode, parentItem?: FieldCompNode) => void
   setSelectComp: (comp: FieldCompNode) => void
   removeSelectComp: (comp: FieldCompNode) => void
   removeComp: (compId: string) => void
@@ -30,7 +30,7 @@ const EditorProvider: FC<IEditorProvider> = ({ children }) => {
     options: {
       width: 400
     },
-    addComps: (comp: FieldNode, parentItem?: FieldCompNode) => {
+    addComps: (comp: UnionFieldNode, parentItem?: FieldCompNode) => {
       // setComps([...comps])
       setComps((comps) => {
         if (!parentItem) {
@@ -63,7 +63,7 @@ const EditorProvider: FC<IEditorProvider> = ({ children }) => {
   return <editorContext.Provider value={value}>{children}</editorContext.Provider>
 }
 
-function createNewComp(item: FieldNode, parentItem?: FieldCompNode): FieldCompNode {
+function createNewComp(item: UnionFieldNode, parentItem?: FieldCompNode): FieldCompNode {
   return {
     ...item,
     compId: uuid(),

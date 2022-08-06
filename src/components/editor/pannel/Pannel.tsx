@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import CompRender from '../compRender/CompRender'
-import { FieldCompNode, FieldNode } from '../dataCore/types'
+import { FieldCompNode, FieldNode, UnionFieldNode } from '../dataCore/types'
 import DragWrap from '../dragWrap/DragWrap'
 import PannelItem from './Panneltem'
 
 interface IPannelProps {
-  comps: FieldNode[]
+  comps: UnionFieldNode[]
 }
 
 const Pannel: FC<IPannelProps> = ({ comps }) => {
