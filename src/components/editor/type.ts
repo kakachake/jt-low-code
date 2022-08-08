@@ -1,8 +1,8 @@
-import { FieldCompNode } from './dataCore/types'
+import { FieldCompNode, FieldCompNodeAll } from './dataCore/types'
 
 interface ICanvas {
   type: 'root'
-  children: FieldCompNode[]
+  children: FieldCompNodeAll[]
   props: {
     width: number
   }

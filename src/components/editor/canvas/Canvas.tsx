@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useDrop } from 'react-dnd'
 import EditorCompRender from '../compRender/EditorCompRender'
-import { FieldCompNode } from '../dataCore/types'
+import { FieldCompNode, FieldCompNodeAll } from '../dataCore/types'
 import { useEditorContext } from '../editorProvider/EditorProvider'
 import { EDITOR_COMP } from '../const'
 import style from './Canvas.module.scss'
@@ -9,9 +9,9 @@ import style from './Canvas.module.scss'
 interface ICanvasProps {}
 
 const Canvas: FC<ICanvasProps> = () => {
-  const { comps, addComps, options } = useEditorContext()
+  const { comps, addComp, options } = useEditorContext()
   const [{ canDrop, isOver }, drop] = useDrop<
-    FieldCompNode,
+    FieldCompNodeAll,
     void,
     {
       isOver: boolean
@@ -32,7 +32,7 @@ const Canvas: FC<ICanvasProps> = () => {
 
       if (!item?.compId && isOver) {
         // 新增
-        addComps(item)
+        addComp(item)
       }
     }
   })

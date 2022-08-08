@@ -1,13 +1,14 @@
 import { DeleteOutlined } from '@ant-design/icons'
 import { FC, MouseEventHandler, useState } from 'react'
-import { FieldCompNode } from '../dataCore/types'
+import { GetCompsType } from '../dataCore/comps/type'
+import { FieldCompNodeAll } from '../dataCore/types'
 import DragDropWrap from '../dragWrap/DragDropWrap'
 import { useEditorContext } from '../editorProvider/EditorProvider'
 import CompRender from './CompRender'
 import style from './EditorCompRender.module.scss'
 
 interface IEditorCompRender {
-  comp: FieldCompNode
+  comp: FieldCompNodeAll
 }
 
 const EditorCompRender: FC<IEditorCompRender> = ({ comp }) => {

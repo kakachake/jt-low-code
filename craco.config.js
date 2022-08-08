@@ -32,8 +32,18 @@ module.exports = {
       options: {
         source: 'tsconfig',
         baseUrl: '.',
-        tsConfigPath: './tsconfig.path.json'
+        tsConfigPath: './tsconfig.path.json',
+        aliases: {
+          'react/jsx-runtime': 'react/jsx-runtime.js',
+          'react/jsx-dev-runtime': 'react/jsx-dev-runtime.js'
+        }
       }
     }
-  ]
+  ],
+  webpack: {
+    alias: {
+      'react/jsx-runtime': 'react/jsx-runtime.js',
+      'react/jsx-dev-runtime': 'react/jsx-dev-runtime.js'
+    }
+  }
 }

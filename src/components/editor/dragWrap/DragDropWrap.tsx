@@ -1,21 +1,21 @@
 import { FC, ReactElement, useEffect, useRef } from 'react'
 import { useDrag, useDrop } from 'react-dnd'
-import { FieldCompNode } from '../dataCore/types'
+import { FieldCompNode, FieldCompNodeAll } from '../dataCore/types'
 import type { Identifier, XYCoord } from 'dnd-core'
 import { EDITOR_COMP } from '../const'
 import { useEditorContext } from '../editorProvider/EditorProvider'
 
 interface IDragDropWrapProps {
   children: ReactElement
-  comp: FieldCompNode
+  comp: FieldCompNodeAll
   setHover: (hover: boolean) => void
 }
 
 const DragDropWrap: FC<IDragDropWrapProps> = ({ children, comp, setHover }) => {
-  const { addComps } = useEditorContext()
+  const { addComp } = useEditorContext()
   const ref = useRef<HTMLDivElement>(null)
   const [{ handlerId, isOver }, drop] = useDrop<
-    FieldCompNode,
+    FieldCompNodeAll,
     void,
     {
       handlerId: Identifier | null
@@ -39,7 +39,7 @@ const DragDropWrap: FC<IDragDropWrapProps> = ({ children, comp, setHover }) => {
       const isOver = monitor.isOver({ shallow: true })
       if (!isOver) return
       if (!item?.compId) {
-        addComps(item, comp)
+        addComp(item, comp)
       } else {
         console.log('move')
       }

@@ -1,4 +1,4 @@
-export const traverse = <T extends { children: T[] }>(data: T, fn: (param: T) => boolean) => {
+export const traverse = <T extends { children: T[] }>(data: Partial<T>, fn: (param: Partial<T>) => boolean) => {
   if (fn(data) === true) {
     return true
   }
@@ -8,4 +8,8 @@ export const traverse = <T extends { children: T[] }>(data: T, fn: (param: T) =>
       if (traverse(data.children[i], fn)) return true
     }
   }
+}
+
+export const deepClone = <T>(data: T): T => {
+  return JSON.parse(JSON.stringify(data))
 }

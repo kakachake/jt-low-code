@@ -15,7 +15,7 @@ const Editor: FC = () => {
             Header={<div>header</div>}
             Menu={<EditorComps.EditorMenu />}
             Editor={<EditorComps.Canvas />}
-            Operation={<div>operation</div>}
+            Operation={<EditorComps.Operation />}
           />
         </DndProvider>
       </EditorProvider>

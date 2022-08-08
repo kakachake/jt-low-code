@@ -5,7 +5,7 @@ const baseComps = {
     return <div {...props} />
   },
   button: (props: BtnProps) => {
-    return <button {...props} />
+    return <button {...props}>{props.data?.value}</button>
   },
   input: (props: DefaultProps) => {
     return <input {...props} />
