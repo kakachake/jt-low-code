@@ -20,11 +20,13 @@ const Operation = () => {
   const form = useForm()
   useEffect(() => {
     if (!selectedComps.length) return
+    console.log(111)
     let _comp: FieldCompNodeAll = {} as FieldCompNodeAll
     const res = traverse<{ children: UnionFieldCompNodeAll; compId?: string }>({ children: comps }, (c) => {
       if (c?.compId === selectedComps[0]) {
-        console.log(c, comps)
         _comp = c as FieldCompNodeAll
+        console.log(_comp.props.style)
+
         return true
       }
       return false
@@ -46,7 +48,10 @@ const Operation = () => {
     setTabs(_tabs)
     setSelectedKeys(_selectedKeys)
     if (_comp.compId) {
-      form.setValues(_comp.props[_selectedKeys!])
+      const value = _comp.props[_selectedKeys]
+      setTimeout(() => {
+        form.setValues(value)
+      }, 0)
     }
   }, [selectedComps])
   useEffect(() => {
@@ -57,6 +62,7 @@ const Operation = () => {
   const watch = {
     // # 为全局
     '#': (val: any) => {
+      console.log(222)
       if (comp?.compId) {
         setProps(comp?.compId, selectedKeys!, { ...val })
       }

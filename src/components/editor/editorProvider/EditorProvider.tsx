@@ -34,6 +34,7 @@ const EditorProvider: FC<IEditorProvider> = ({ children }) => {
     },
     addComp: (comp: FieldCompNodeAll, parentItem?: FieldCompNodeAll) => {
       // setComps([...comps])
+
       setComps((comps) => {
         if (!parentItem) {
           return [...comps, createNewComp(comp)]

@@ -9,7 +9,7 @@ const baseFields: UnionFieldNode<'base'>[] = [
       children: ['div组件'],
       style: {
         display: 'flex',
-        backgroundColor: 'red'
+        backgroundColor: '#37af89'
       }
     },
     canDrop: true
