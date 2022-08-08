@@ -13,7 +13,7 @@ interface IEditorType {
   addComp: (comp: FieldCompNodeAll, parentItem?: FieldCompNodeAll) => void
   setSelectComp: (comp: FieldCompNodeAll) => void
   removeSelectComp: (comp: FieldCompNodeAll) => void
-  removeComp: (compId: string) => void
+  removeComp: (comp: FieldCompNodeAll) => void
   setProps: (compId: string, key: string, payload: any) => void
   options: {
     width: number
@@ -41,7 +41,7 @@ const EditorProvider: FC<IEditorProvider> = ({ children }) => {
         } else {
           traverse<{ children: UnionFieldCompNodeAll; compId?: string }>({ children: comps }, (item) => {
             if (item?.compId === parentItem.compId) {
-              item?.children?.push(createNewComp(comp))
+              item?.children?.push(createNewComp(comp, parentItem))
               return true
             }
             return false
@@ -50,8 +50,21 @@ const EditorProvider: FC<IEditorProvider> = ({ children }) => {
         }
       })
     },
-    removeComp: (compId: string) => {
-      setComps((comps) => comps.filter((comp) => comp.compId !== compId))
+    removeComp: (comp: FieldCompNodeAll) => {
+      const compId = comp.compId
+      setComps((comps) => {
+        if (comp.parentId === 'root') {
+          return comps.filter((comp) => comp.compId !== compId)
+        }
+        traverse<FieldCompNodeAll>({ children: comps }, (item) => {
+          if (item?.compId === compId && item.parent) {
+            item.parent.children = item.parent.children.filter((child) => child.compId !== compId)
+            return true
+          }
+          return false
+        })
+        return [...comps]
+      })
       message.success('删除成功')
     },
     setSelectComp: (comp: FieldCompNodeAll) => {
@@ -86,7 +99,8 @@ function createNewComp(item: FieldCompNodeAll, parentItem?: FieldCompNodeAll): F
     ...deepClone(item),
     compId: uuid(),
     children: [],
-    parentId: parentItem?.compId
+    parentId: parentItem?.compId || 'root',
+    parent: parentItem || undefined
   }
 }
 

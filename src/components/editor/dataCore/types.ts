@@ -29,8 +29,9 @@ export interface FieldNode<type, M extends keyof typeof comps> {
 export type FieldCompNode<M extends keyof typeof comps> = {
   // 放置到画布上的组件唯一ID
   compId: string
-  children: FieldCompNode<M>[]
+  children: CompsType[keyof CompsType][]
   parentId?: string
+  parent?: CompsType[keyof CompsType]
 } & UnionFieldNode<M>
 
 type CompsType = {

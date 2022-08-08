@@ -20,7 +20,7 @@ const EditorCompRender: FC<IEditorCompRender> = ({ comp }) => {
     e.stopPropagation()
   }
   const handleDelete: MouseEventHandler<HTMLDivElement> = (e) => {
-    removeComp(comp.compId)
+    removeComp(comp)
     e.stopPropagation()
   }
 
