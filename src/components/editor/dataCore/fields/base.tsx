@@ -1,6 +1,6 @@
 import { FieldNode, UnionFieldNode } from '../types'
 
-const baseFields: UnionFieldNode[] = [
+const baseFields: UnionFieldNode<'base'>[] = [
   {
     type: 'div',
     module: 'base',
@@ -8,7 +8,8 @@ const baseFields: UnionFieldNode[] = [
       className: '',
       children: ['div组件'],
       style: {
-        display: 'flex'
+        display: 'flex',
+        backgroundColor: 'red'
       }
     },
     canDrop: true
@@ -18,7 +19,9 @@ const baseFields: UnionFieldNode[] = [
     module: 'base',
     props: {
       className: '',
-      children: ['button组件']
+      data: {
+        value: '按钮组件'
+      }
     }
   },
   {

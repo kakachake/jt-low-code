@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "input_UnA1aJ": {
+      "title": "输入框",
+      "required": false,
+      "disabled": false,
+      "readOnly": false,
+      "hidden": false,
+      "props": {
+        "allowClear": false
+      },
+      "type": "string"
+    }
+  },
+  "displayType": "row",
+  "showDescIcon": true
+}

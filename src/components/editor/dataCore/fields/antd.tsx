@@ -1,6 +1,6 @@
 import { FieldNode, UnionFieldNode } from '../types'
 
-const antdFields: UnionFieldNode[] = [
+const antdFields: UnionFieldNode<'antd'>[] = [
   {
     type: 'antd-button',
     module: 'antd',

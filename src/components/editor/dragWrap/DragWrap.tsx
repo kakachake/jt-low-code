@@ -1,12 +1,11 @@
 import { FC } from 'react'
 import { useDrag } from 'react-dnd'
-import comps from '../dataCore/comps'
-import { FieldCompNode, FieldNode, UnionFieldNode } from '../dataCore/types'
+import { FieldCompNodeAll } from '../dataCore/types'
 import { EDITOR_COMP } from '../const'
 
 interface IDragWrapProps {
   children: React.ReactElement
-  item: UnionFieldNode
+  item: FieldCompNodeAll
 }
 
 const DragWrap: FC<IDragWrapProps> = ({ children, item }) => {
